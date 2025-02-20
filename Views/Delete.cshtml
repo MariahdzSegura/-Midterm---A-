@@ -1,0 +1,17 @@
+@model Myexam200.Models.Student
+
+<h1>Delete Student</h1>
+
+<div>
+    <h4>Are you sure you want to delete this student?</h4>
+    <div>
+        <h5>@Model.FirstName @Model.LastName</h5>
+        <p>Email: @(string.IsNullOrEmpty(Model.EmailAddress) ? "No Email" : Model.EmailAddress)</p>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="StudentId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
